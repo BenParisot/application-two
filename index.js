@@ -31,7 +31,13 @@ formNode.addEventListener('submit', function(event){
         salary: salary
     };
 
-    console.log(applicant);
+    const applicantsJSON = JSON.stringify(applicant);
+
+    window.localStorage.setItem('applicants', applicantsJSON);
+
+    console.log(applicantsJSON);
+
+    // console.log(applicant);
 
 
 });
