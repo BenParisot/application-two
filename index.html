@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form 2</title>
+</head>
+<body>
+    <header>
+        <h1>Job Application Form</h1>
+    </header>
+
+    <main>
+        <section id="form-area">
+            <p>Please fill out the form below to apply for this job.</p>
+            <form id="application-form">
+                <section id="about">
+                    <label for="first-name">
+                        First Name
+                        <input type="text" id="first-name">
+                    </label>
+                    <label for="last-name">
+                        Last Name
+                        <input type="text" id="last-name">
+                    </label>
+                    <label for="city">
+                        City
+                        <input type="text" id="city">
+                    </label>
+                </section>
+                <section id="position-area">
+                    <p>Desired Position</p>
+                    <label for="developer">
+                        <input type="radio" id="developer" name="position">
+                        Developer
+                    </label>
+                    <label for="designer">
+                        <input type="radio" id="designer" name="position">
+                        Designer
+                    </label>
+                    <label for="pm">
+                        <input type="radio" id="pm" name="position">
+                        Project Manager
+                    </label>
+                    <label for="am">
+                        <input type="radio" id="am" name="position">
+                        Account Manager
+                    </label>
+                    <label for="qa"></label>
+                        <input type="radio" id="qa" name="position">
+                        QA
+                    </label>
+                    <label for="ops">
+                        <input type="radio" id="ops" name="position">
+                        Operations
+                    </label>
+                </section>
+                <section id="salary-area">
+                    <p>Salary Requirements</p>
+                    <label>
+                        $72,000
+                        <input type="range" min="72" max="150">
+                        $150,000
+                    </label>
+                </section>
+                <button>Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Ben Parisot 2019</p>
+    </footer>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
