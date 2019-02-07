@@ -4,6 +4,14 @@ const lastNameNode = document.getElementById('last-name');
 const cityNode = document.getElementById('city');
 const salaryNode = document.getElementById('salary');
 
+let applicants = [];
+
+let applicantsJSON = window.localStorage.getItem('applicants');
+
+if(applicantsJSON) {
+    applicants = JSON.parse(applicantsJSON);
+}
+
 let salary = 100;
 salaryNode.addEventListener('change', function() {
     salary = salaryNode.value; 
@@ -31,7 +39,11 @@ formNode.addEventListener('submit', function(event){
         salary: salary
     };
 
-    const applicantsJSON = JSON.stringify(applicant);
+    // console.log(applicant);
+
+    applicants.push(applicant);
+
+    const applicantsJSON = JSON.stringify(applicants);
 
     window.localStorage.setItem('applicants', applicantsJSON);
 
