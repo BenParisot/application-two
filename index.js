@@ -2,25 +2,34 @@ const formNode = document.getElementById('application-form');
 const firstNameNode = document.getElementById('first-name');
 const lastNameNode = document.getElementById('last-name');
 const cityNode = document.getElementById('city');
-const positionNode = document.getElementById('position-area');
 const salaryNode = document.getElementById('salary');
 
+let salary = 100;
+salaryNode.addEventListener('change', function() {
+    salary = salaryNode.value; 
+});
 
 formNode.addEventListener('submit', function(event){
     event.preventDefault();
     const firstName = firstNameNode.value;
     const lastName = lastNameNode.value;
     const city = cityNode.value;
-    const position = positionNode.;
-    // const salary = salaryNode.value;
+    let position = null;
+    const positions = document.getElementsByName('position');
+    for(let index = 0; index < positions.length; index++) {
+        if(positions[index].checked) {
+            position = positions[index].value;
+        }
+    }
+    
 
     const applicant = {
         firstName: firstName,
         lastName: lastName,
         city: city,
         position: position,
-        // salary: salary
-    }
+        salary: salary
+    };
 
     console.log(applicant);
 
