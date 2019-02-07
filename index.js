@@ -4,6 +4,14 @@ const lastNameNode = document.getElementById('last-name');
 const cityNode = document.getElementById('city');
 const salaryNode = document.getElementById('salary');
 
+let applicants = [];
+let applicantsJSON = window.localStorage.getItem('applicants');
+if(applicantsJSON) {
+    let existingApplicants = JSON.parse(applicantsJSON);
+    for(let index = 0; index < existingApplicants.length; index++) {
+        applicants.push(existingApplicants[index]);
+    }
+}
 
 let salary = 100;
 salaryNode.addEventListener('change', function() {
@@ -13,17 +21,7 @@ salaryNode.addEventListener('change', function() {
 formNode.addEventListener('submit', function(event){
     event.preventDefault();
 
-    let applicants = [];
 
-
-    let applicantsJSON = window.localStorage.getItem('applicants');
-
-    if(applicantsJSON) {
-        let existingApplicants = JSON.parse(applicantsJSON);
-        for(let index = 0; index < existingApplicants.length; index++) {
-            applicants.push(existingApplicants[index]);
-        }
-    }
     const firstName = firstNameNode.value;
     const lastName = lastNameNode.value;
     const city = cityNode.value;
@@ -44,18 +42,10 @@ formNode.addEventListener('submit', function(event){
         salary: salary
     };
 
-    // console.log(applicant);
-
     applicants.push(applicant);
 
     applicantsJSON = JSON.stringify(applicants);
 
     window.localStorage.setItem('applicants', applicantsJSON);
-
-    console.log(applicantsJSON);
-
-    // console.log(applicant);
-
-
 });
 
