@@ -25,13 +25,19 @@ formNode.addEventListener('submit', function(event){
     const firstName = firstNameNode.value;
     const lastName = lastNameNode.value;
     const city = cityNode.value;
+
     let position = null;
     const positions = document.getElementsByName('position');
+
+    console.log(positions[0].checked);
+
     for(let index = 0; index < positions.length; index++) {
         if(positions[index].checked) {
             position = positions[index].value;
         }
     }
+
+
     
 
     const applicant = {
@@ -49,3 +55,8 @@ formNode.addEventListener('submit', function(event){
     window.localStorage.setItem('applicants', applicantsJSON);
 });
 
+const formData = new FormData(formNode);
+
+const allPositions = formData.getAll('position');
+
+console.log(allPositions);
