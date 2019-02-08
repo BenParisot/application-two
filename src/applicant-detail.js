@@ -9,6 +9,7 @@ const applicantsTableNode = document.getElementById('applicant-detail');
 if(applicantsJSON) {
     for(let index = 0; index < applicantsArray.length; index++) {
         applicants.push(applicantsArray[index]);
+        break;
     }  
 }
 
